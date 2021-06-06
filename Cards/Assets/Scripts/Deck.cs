@@ -1,12 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
-
-
-
     ///<summary>
     ///昇順のDeckをゲットする
     ///</summary>
@@ -20,9 +18,14 @@ public class Deck : MonoBehaviour
         }
         return deck;
     }
-
-
-
+    ///<summary>
+    ///シャッフルしたDeckをゲットする
+    ///＜/summary＞
+    public static List<Card> ShuffleDeck(List<Card> deck)
+    {
+        var shuffleDeck = deck.OrderBy(card => Guid.NewGuid()).ToList();
+        return shuffleDeck;
+    }
 
     ///<summary>
     ///カードをDeckの中から取得する
