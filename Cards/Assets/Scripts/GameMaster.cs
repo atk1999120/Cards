@@ -16,10 +16,11 @@ public class PokerGameManager : MonoBehaviour
         Result
     }
 
-    Private GameState gameState = GameState.Init;
+    private GameState gameState = GameState.Init;
 
-//Update is called once per frame
-void Update()
+    //Update is called once per frame
+    void Update()
+    { 
     
         switch (gameState)
         {
@@ -31,24 +32,24 @@ void Update()
                 //STARTのときにしたいことを書く、終わればDealへ
                 gameState = GameState.Deal;
                 break;
-            case GameState.Deal;
+            case GameState.Deal:
                 //Dealのときにしたいことを書く、終わればBetへ
-                GameState = GameState.Bet;
+                gameState = GameState.Bet;
                 break;
             case GameState.Bet:
                 //Betのときにしたいことを書く、終わればCardChangeへ
-                GameState = GameState.CardChange;
+                gameState = GameState.CardChange;
                 break;
             case GameState.CardChange:
                 //CardChangeのときにしたいことを書く、終わればShowDownへ
-                GameState = GameState.ShowDown;
+                gameState = GameState.ShowDown;
                 break;
-            case GameState.ShowDown;
+            case GameState.ShowDown:
                 //ShowDown のときにしたいことを書く、終わればResultへ
-                GameState = GameState.Result;
+                gameState = GameState.Result;
                 break;
-            case GameState.Result;
+            case GameState.Result:
                 break;
         }
-}
+    }
 }
